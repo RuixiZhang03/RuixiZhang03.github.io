@@ -20,6 +20,12 @@
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
+
+  #hero p {
+    text-indent: 2em;
+    text-align: justify;
+    text-justify: inter-ideograph;
+  }
 }
 
 @utility max-w-app {

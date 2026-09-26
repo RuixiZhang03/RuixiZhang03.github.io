@@ -63,7 +63,13 @@ export default defineConfig({
       name: "Google Sans Code",
       cssVariable: "--font-google-sans-code",
       provider: fontProviders.local(),
-      fallbacks: ["monospace"],
+      fallbacks: [
+        "PingFang SC",
+        "Hiragino Sans GB",
+        "Microsoft YaHei",
+        "Noto Sans SC",
+        "sans-serif",
+      ],
       options: {
         variants: [
           {
