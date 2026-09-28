@@ -8,38 +8,239 @@
 @layer base {
   * {
     @apply border-border outline-accent/75;
-    scrollbar-width: auto;
     scrollbar-color: var(--color-muted) transparent;
   }
   a,
   button,
   #main-content {
-    @apply outline-accent outline-offset-1 focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
+    @apply outline-accent outline-offset-2 focus-visible:outline-2;
   }
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
-
-  #hero p {
-    text-indent: 2em;
-    text-align: justify;
-    text-justify: inter-ideograph;
-  }
 }
 
 @utility max-w-app {
-  @apply max-w-3xl;
+  max-width: 780px;
 }
 
 @utility app-layout {
-  @apply max-w-app mx-auto w-full px-4;
+  @apply max-w-app mx-auto w-full px-5;
 }
 
 @utility active-nav {
-  @apply underline decoration-wavy decoration-2 underline-offset-8;
+  color: var(--accent);
 }
 
 :target {
   scroll-margin-block: 1rem;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 50;
+  padding: 0.4rem 0.7rem;
+  background: var(--background);
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--border);
+}
+.site-name {
+  color: var(--foreground);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.site-header nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.15rem;
+}
+.site-header nav a {
+  position: relative;
+  display: inline-block;
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.site-header nav a:hover,
+.site-header nav a[aria-current="page"] {
+  color: var(--accent);
+}
+.nav-underline {
+  position: absolute;
+  bottom: -0.25rem;
+  left: 0;
+  width: 100%;
+  height: 0.3rem;
+  color: var(--accent);
+  transform-origin: center;
+}
+[data-underline="posts"] .nav-underline {
+  transform: rotate(-2deg) scaleX(0.96);
+}
+[data-underline="tags"] .nav-underline {
+  transform: rotate(3deg) scaleX(0.82);
+}
+[data-underline="archives"] .nav-underline {
+  transform: rotate(-4deg) scaleX(1.04);
+}
+[data-underline="search"] .nav-underline {
+  transform: rotate(2deg) scaleX(0.9);
+}
+[data-underline="about"] .nav-underline {
+  transform: rotate(-3deg) scaleX(1.02);
+}
+.theme-toggle {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--muted-foreground);
+}
+.theme-toggle:hover {
+  color: var(--accent);
+}
+.theme-toggle svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke: currentColor;
+}
+.sun-icon {
+  display: none;
+}
+[data-theme="dark"] .sun-icon {
+  display: block;
+}
+[data-theme="dark"] .moon-icon {
+  display: none;
+}
+
+.home-page {
+  padding-top: 1.9rem;
+  padding-bottom: 2.5rem;
+}
+.home-intro h1 {
+  margin-bottom: 0.9rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.25;
+}
+.chinese-name {
+  color: var(--muted-foreground);
+  font-size: 0.52em;
+  font-weight: 500;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.home-intro p {
+  margin: 0 0 0.7rem;
+  line-height: 1.65;
+}
+.home-intro a,
+.all-posts {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.home-writing {
+  margin-top: 2rem;
+}
+.home-writing h2 {
+  margin-bottom: 1rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.home-posts li {
+  margin: 0;
+  padding: 1rem 0 1.3rem;
+}
+.home-posts li + li {
+  border-top: 1px solid var(--border);
+}
+.home-posts h3 {
+  margin-bottom: 0.2rem;
+  font-size: 1.23rem;
+  font-weight: 650;
+}
+.home-posts p {
+  margin-top: 0.35rem;
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
+}
+.all-posts {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.app-prose > h1 {
+  margin: 0.45rem 0 0.8rem;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  letter-spacing: -0.04em;
+}
+.app-prose > h2 {
+  margin-top: 1.6rem;
+  font-size: 1.4rem;
+}
+.app-prose > p,
+.app-prose > ul {
+  line-height: 1.65;
+}
+.app-prose > p {
+  margin-top: 0.65rem;
+  margin-bottom: 0.65rem;
+}
+.app-prose > ul {
+  margin-top: 0.7rem;
+  margin-bottom: 0.9rem;
+}
+footer {
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding-top: 1.15rem;
+    padding-bottom: 1.15rem;
+  }
+  .site-header nav {
+    gap: 0.3rem 1rem;
+  }
+  .home-page {
+    padding-top: 1.5rem;
+  }
 }

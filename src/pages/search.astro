@@ -60,18 +60,28 @@ const t = useTranslations(locale);
     const onIdle = window.requestIdleCallback || (cb => setTimeout(cb, 1));
 
     onIdle(async () => {
+      // Pagefind writes its search index during the build. In development,
+      // only show a notice when that index is actually missing.
+      if (import.meta.env.DEV) {
+        let hasIndex = false;
+        try {
+          const response = await fetch(`${bundlePath}pagefind-entry.json`);
+          if (response.ok) {
+            await response.json();
+            hasIndex = true;
+          }
+        } catch {
+          // The development server has no generated Pagefind index yet.
+        }
+        if (!hasIndex) {
+          pageFindSearch.textContent =
+            "Search index is unavailable in development. Run pnpm build, then refresh this page.";
+          return;
+        }
+      }
+
       // @ts-expect-error — Missing types for @pagefind/default-ui package.
       const { PagefindUI } = await import("@pagefind/default-ui");
-
-      // Display warning inn dev mode
-      if (import.meta.env.DEV) {
-        pageFindSearch.innerHTML = `
-            <div class="bg-muted/75 rounded p-4 space-y-4 mb-4">
-              <p><strong>DEV mode Warning! </strong>You need to build the project at least once to see the search results during development.</p>
-              <code class="block bg-black text-white px-2 py-1 rounded">pnpm run build</code>
-            </div>
-          `;
-      }
 
       // Init pagefind ui
       const search = new PagefindUI({

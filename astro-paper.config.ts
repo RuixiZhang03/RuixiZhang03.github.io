@@ -3,8 +3,8 @@ import { defineAstroPaperConfig } from "./src/types/config";
 export default defineAstroPaperConfig({
   site: {
     url: "https://ruixizhang03.github.io/",
-    title: "张睿曦",
-    description: "张睿曦的个人主页与博客，记录学习笔记。",
+    title: "Ruixi Zhang",
+    description: "Ruixi Zhang is a second-year Master's student exploring ML systems, AI infrastructure, and efficient LLM computation.",
     author: "张睿曦 (Ruixi Zhang)",
     profile: "https://ruixizhang03.github.io",
     ogImage: "default-og.jpg",

@@ -15,6 +15,7 @@ const formatPage = (n: string | number) =>
 // reflect the logical page path only.
 const pathWithoutBase = stripBase(Astro.url.pathname).replace(/\/+$/, "");
 const currentUrlPath = stripLocale(pathWithoutBase, locale);
+const isEnglishAbout = currentUrlPath === "/about";
 
 // Get url array from path
 // eg: /tags/tailwindcss => ['tags', 'tailwindcss']
@@ -61,13 +62,13 @@ if (breadcrumbList[0] === "tags" && !isNaN(Number(breadcrumbList[2]))) {
 }
 ---
 
-<nav class="app-layout mt-8 mb-1" aria-label="breadcrumb">
+<nav class="app-layout mt-4 mb-1" aria-label="breadcrumb">
   <ul
     class="flex flex-wrap items-center gap-x-1 font-light [&>li:not(:last-child)>a]:hover:opacity-100"
   >
     <li class="flex items-center gap-x-1">
       <a href={getRelativeLocaleUrl(locale, "")} class="opacity-80">
-        {t.nav.home}
+        {isEnglishAbout ? "Home" : t.nav.home}
       </a>
       <span aria-hidden="true" class="opacity-80">&raquo;</span>
     </li>

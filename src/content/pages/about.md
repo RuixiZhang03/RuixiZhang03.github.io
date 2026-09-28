@@ -1,29 +1,24 @@
 ---
-title: "关于"
-description: "关于我和这个网站。"
+title: "About"
+description: "About Ruixi Zhang, a Master's student working on ML systems and AI infrastructure."
 ---
 
-你好，我是张睿曦（Ruixi Zhang），计算机专业的研一学生。
+Hi, I'm **Ruixi Zhang (张睿曦)**, a second-year Master's student in Computer Science at the **Institute of Computing Technology, Chinese Academy of Sciences**, based in Beijing.
 
-这个网站既是我的个人主页，也是我的博客。我会在这里记录学习中的笔记，偶尔也会写一些别的话题。
+I am interested in how modern AI systems are built below the model API layer. My work and reading center on **ML systems**, **AI infrastructure**, and efficient computation for large language models.
 
-## 我的兴趣
+## What interests me
 
-我感兴趣的是模型 API 层之下，现代 AI 系统是如何被构建出来的。具体来说，我关心：
+- **Attention on hardware:** how attention mechanisms map to GPUs, including FlashAttention-style kernels and sparse attention.
+- **Kernel engineering:** how operators are designed, tiled, profiled, and optimized for real workloads.
+- **Runtime systems:** how computation and memory movement are scheduled during training and inference.
+- **System–model co-design:** how architecture choices and system constraints influence each other.
 
-- 注意力机制如何映射到硬件上；
-- kernel 如何被设计、分块、优化和 profiling；
-- 运行时系统如何调度计算与显存搬运；
-- 模型结构的选择如何与系统约束相互作用；
-- 高效的 LLM 训练与推理系统在实践中如何实现。
+I hope to help turn algorithmic ideas into efficient, scalable systems. I use this site to collect technical notes, share things I am learning, and occasionally write about other topics that catch my attention.
 
-我的长期方向是 **AI Infrastructure 与系统—模型协同设计**——把算法层面的想法，转化为高效、可扩展、可落地的系统。
+## Elsewhere
 
-##  elsewhere
+- [GitHub](https://github.com/RuixiZhang03) — code, projects, and ongoing interests
+- [Email](mailto:zhangruixi25e@ict.ac.cn) — zhangruixi25e@ict.ac.cn
 
-- GitHub：[@RuixiZhang03](https://github.com/RuixiZhang03)
-- 邮箱：[zhangruixi25e@ict.ac.cn](mailto:zhangruixi25e@ict.ac.cn)
-
-## 关于本站
-
-基于 [Astro](https://astro.build/) 构建，主题为定制版 [AstroPaper](https://github.com/satnaing/astro-paper)，托管于 GitHub Pages。
+This site is built with [Astro](https://astro.build/) and hosted on GitHub Pages.
