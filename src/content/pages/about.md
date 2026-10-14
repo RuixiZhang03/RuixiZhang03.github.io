@@ -3,7 +3,7 @@ title: "About"
 description: "About Ruixi Zhang, a Master's student working on ML systems and AI infrastructure."
 ---
 
-Hi, I'm **Ruixi Zhang (张睿曦)**, a second-year Master's student in Computer Science at the **Institute of Computing Technology, Chinese Academy of Sciences**, based in Beijing.
+Hi, I'm **Ruixi Zhang (张睿曦)**, a second-year Master's student in Computer Science at a research institute under the **Chinese Academy of Sciences**, based in Beijing.
 
 I am interested in how modern AI systems are built below the model API layer. My work and reading center on **ML systems**, **AI infrastructure**, and efficient computation for large language models.
 
@@ -19,6 +19,6 @@ I hope to help turn algorithmic ideas into efficient, scalable systems. I use th
 ## Elsewhere
 
 - [GitHub](https://github.com/RuixiZhang03) — code, projects, and ongoing interests
-- [Email](mailto:zhangruixi25e@ict.ac.cn) — zhangruixi25e@ict.ac.cn
+- [Email](mailto:zhangruixi0906@outlook.com) — zhangruixi0906@outlook.com
 
 This site is built with [Astro](https://astro.build/) and hosted on GitHub Pages.
